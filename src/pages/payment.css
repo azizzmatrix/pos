@@ -1,0 +1,127 @@
+/* --- Payment Panel Container --- */
+.payment-panel {
+  background-color: #11131e;
+  color: #f1f5f9;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading */
+.payment-panel h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ec4899; /* vibrant pink accent */
+}
+
+/* Summary text */
+.payment-panel p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #94a3b8;
+}
+
+/* --- Payment Method Form --- */
+.payment-method {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 240px;
+}
+
+.payment-method label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.payment-method input,
+.payment-method select {
+  background-color: #161926;
+  border: 1px solid #1f2336;
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+.payment-method input:focus,
+.payment-method select:focus {
+  outline: none;
+  border-color: #9333ea;
+}
+
+/* --- Payment Action Buttons --- */
+.payment-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.payment-actions button {
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.payment-actions button:hover {
+  background-color: #a855f7;
+}
+
+.payment-actions button:active {
+  transform: scale(0.97);
+}
+
+/* Special styles for Back and Abandon buttons */
+.payment-actions .back-btn {
+  background-color: #64748b; /* slate gray */
+}
+
+.payment-actions .back-btn:hover {
+  background-color: #475569;
+}
+
+.payment-actions .abandon-btn {
+  background-color: #f43f5e; /* red */
+}
+
+.payment-actions .abandon-btn:hover {
+  background-color: #fb7185;
+}
+
+/* --- Payments List --- */
+.payment-panel h3 {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #38bdf8; /* cyan accent */
+}
+
+.payment-panel ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.payment-panel li {
+  background-color: #161926;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.4rem;
+  color: #f1f5f9;
+  font-size: 0.9rem;
+}

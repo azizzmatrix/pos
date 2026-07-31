@@ -1,0 +1,585 @@
+/* --- Core Container --- */
+.sale-editor {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #11131e;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 2rem;
+}
+
+/* --- Heading --- */
+.sale-editor h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ec4899; /* vibrant pink accent */
+  letter-spacing: 0.05em;
+}
+
+/* --- Sale Header Form --- */
+.sale-header {
+  background-color: #161926;
+  border: 1px solid #1f2336;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sale-header label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.sale-header input,
+.sale-header select {
+  background-color: #11131e;
+  border: 1px solid #1f2336;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+}
+
+.sale-header input:focus,
+.sale-header select:focus {
+  outline: none;
+  border-color: #9333ea;
+}
+
+.sale-header button {
+  align-self: flex-start;
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.sale-header button:hover {
+  background-color: #a855f7;
+}
+
+.sale-header button:active {
+  transform: scale(0.97);
+}
+
+/* --- Cart Window --- */
+.cart-window {
+  background-color: #161926;
+  border: 1px solid #1f2336;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- Cart List Wrapper --- */
+.cart-list-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;       /* ✅ scrollable */
+  margin-bottom: 1rem;
+  max-height: 50vh;       /* adjust height as needed */
+}
+
+/* Status + Payment grouped */
+.status-payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.status-display {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.status-value {
+  margin-left: 1.5rem;
+  color: #38bdf8; /* cyan accent */
+}
+
+
+
+
+
+/* --- Core Container Grid System --- */
+body{
+  padding: 0;
+  margin: 0;
+}
+.cashier-panel {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  height: 100vh;
+  background-color: #11131e;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+/* --- Product Catalog Window Left Side --- */
+.product-catalog {
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-catalog h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ec4899; /* Vibrant Pink Heading Color accent */
+  letter-spacing: 0.05em;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* --- Product Grid Card Layout Elements --- */
+.product-card {
+  background-color: #161926;
+  border: 1px solid #1f2336;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+  border-color: #2b314d;
+  transform: translateY(-2px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  background-color: #11131e;
+  border-radius: 0.75rem;
+  border: 1px solid #1f2336;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.product-card:hover img {
+  opacity: 1;
+}
+
+.product-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #f1f5f9;
+}
+
+.product-card p {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Dynamic price text indicator element layout rules */
+.product-card p:nth-of-type(2) {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #34d399; /* Emerald Green for Currency Value values */
+  margin-top: auto;
+  margin-bottom: 0.7rem;
+}
+
+/* In Stock status indicator logic styling */
+.product-card p:nth-of-type(3) {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background-color: #064e3b;
+  color: #6ee7b7;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.375rem;
+  margin: 0;
+}
+
+
+.product-card button {
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.product-card button:hover {
+  background-color: #a855f7;
+}
+
+.product-card button:active {
+  transform: scale(0.97);
+}
+
+/* --- Cart Window Right Side Panel --- */
+.cart-window {
+  background-color: #161926;
+  border-left: 1px solid #1f2336;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cart-window h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1.5rem;
+  margin: 0;
+  border: 1px solid #1f2336;
+  color: #f1f5f9;
+}
+
+/* Placeholder formatting when empty state context applies */
+.cart-window > p {
+  text-align: center;
+  color: #475569;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  flex-grow: 1;
+}
+
+.cart-list-wrapper {
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: 1rem;
+  height: 40vh;
+}
+
+.cart-window ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* --- Cart Interactive Item Strip Rows --- */
+.cart-item {
+  background-color: #11131e;
+  border: 1px solid #1f2336;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-details span:first-child {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-details span:last-child {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+/* --- Inside Row Modifiers Quantity Mechanics --- */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-controls button {
+  background-color: #161926;
+  color: #94a3b8;
+  border: 1px solid #23283b;
+  border-radius: 0.375rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.quantity-controls span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+  color: #f1f5f9;
+}
+
+/* Delete cross button interaction styling */
+.quantity-controls .delete-btn {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #475569;
+}
+
+.quantity-controls .delete-btn:hover {
+  color: #f43f5e;
+}
+
+/* --- Dynamic Aggregated Calculation Totals Block Pane --- */
+.totals {
+  background-color: #11131e;
+  border-top: 1px solid #1f2336;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.totals p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.totals p strong {
+  font-size: 1.1rem;
+  color: #f1f5f9;
+  border-top: 1px dashed #1f2336;
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.totals p strong span {
+  color: #34d399;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+/* --- Payment Method Dropdown Styling --- */
+/* --- Payment Method Dropdown Styling --- */
+.payment-method {
+  margin: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.payment-method label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.03em;
+}
+
+.payment-method select {
+  background-color: #11131e;
+  border: 1px solid #1f2336;
+  border-radius: 0.7em;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none; 
+}
+
+.payment-method select:hover {
+  border-color: #475569;
+  box-shadow: none; /* no hover glow */
+}
+
+.payment-method select:focus {
+  outline: none;
+  border-color: #9333ea;
+  box-shadow: none; /* no focus glow */
+}
+
+/* --- Dropdown Options Styling --- */
+.payment-method select option {
+  background-color: #11131e;
+  color: #f1f5f9;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 0; /* ensure options are square */
+}
+
+/* Remove gray hover effect in options */
+.payment-method select option:checked,
+.payment-method select option:active {
+  background-color: #9333ea;
+  color: #ffffff;
+}
+
+
+/* --- Action Transaction Processing Elements Trigger Button --- */
+.checkout-btn {
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+}
+
+.checkout-btn:hover:not(:disabled) {
+  background-color: #a855f7;
+}
+
+.checkout-btn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.checkout-btn:disabled {
+  background-color: rgba(147, 51, 234, 0.1);
+  color: rgba(148, 163, 184, 0.3);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+
+/* --- Core Container --- */
+.sale-editor {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #11131e;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 2rem;
+}
+
+/* --- Heading --- */
+.sale-editor h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ec4899; /* vibrant pink accent */
+  letter-spacing: 0.05em;
+}
+
+/* --- Sale Header Form --- */
+.sale-header {
+  background-color: #161926;
+  border: 1px solid #1f2336;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sale-header label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.sale-header input,
+.sale-header select {
+  background-color: #11131e;
+  border: 1px solid #1f2336;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+}
+
+.sale-header input:focus,
+.sale-header select:focus {
+  outline: none;
+  border-color: #9333ea;
+}
+
+.sale-header button {
+  align-self: flex-start;
+  background-color: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.sale-header button:hover {
+  background-color: #a855f7;
+}
+
+.sale-header button:active {
+  transform: scale(0.97);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
